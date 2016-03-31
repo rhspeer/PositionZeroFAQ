@@ -62,6 +62,7 @@ if(!class_exists('PositionZeroFAQ'))
 
             add_action('init', array($this, 'registerMenu'));
 
+            add_action('template_redirect', array($this, 'canonicalArchiveUrl'));
 
 		} // END public function __construct
 
@@ -83,6 +84,29 @@ if(!class_exists('PositionZeroFAQ'))
 		{
 			// Do nothing
 		} // END public static function deactivate
+
+        /**
+         * redirects from /?post_type=pzfaq to /faq
+         * or more generically /?post_type=[post type name] to /[slug]
+         *
+         * This is to aid with avoiding duplicate content penalties from search engines
+         *
+         * IF slug is not set in the rewrite settings of create post type WP falls back to the post type
+         */
+        public static function canonicalArchiveURL(){
+           if(is_archive()){
+               $post_type = get_post_type();
+               if ( $post_type ){
+                   if(strpos($_SERVER['REQUEST_URI'], "/?post_type=$post_type")!== false){
+                       $post_type_slug = get_post_type_object( $post_type )->rewrite['slug'];
+                       wp_redirect( home_url( $post_type_slug, 301 ) );
+                       exit();
+                   }
+                }
+            }
+        }
+
+
 
 		// Add the settings link to the plugins page
 		function pluginSettingsLink($links)

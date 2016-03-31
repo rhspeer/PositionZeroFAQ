@@ -19,6 +19,7 @@ Early version that could be used in production by experienced Wordpress develope
 * A FAQ Menu useful for adding Question Type taxonomy menu items to for filtering large FAQ lists
 * Pagination of FAQ lists
 * A focus on doing things the Wordpress way and not get to fancy
+* Canonical archive URL, WP provides a 2 URL's for Custom Post Types, the less human friendly one, /?post_type=pzfaq, is 301 redirected to the more SEO friendly one, /faq
 
 ##Project Goals:
 1. Optimize for the best chance of being used in the google answer box
