@@ -10,7 +10,7 @@ if(!class_exists('FAQPostType'))
 	 */
 	class FAQPostType
 	{
-		const POST_TYPE	= "si_faq";
+		const POST_TYPE	= "pzfaq";
 		private $_meta = array(  // not sure what this does
             'meta_a',
             'meta_b',
@@ -132,7 +132,7 @@ if(!class_exists('FAQPostType'))
                 'show_in_nav_menus'  => true,
             );
 
-            register_taxonomy( 'questiontype', array( 'si_faq' ), $args );
+            register_taxonomy( 'questiontype', array( 'pzfaq' ), $args );
         }
 
         /**
