@@ -163,11 +163,13 @@ if(!class_exists('FAQPostType'))
 
     	/**
     	 * hook into WP's admin_init action hook
+         *
+         * todo: add extra meta fields as necessary
     	 */
     	public function admin_init()
     	{			
     		// Add metaboxes
-    	   add_action('add_meta_boxes', array(&$this, 'add_meta_boxes'));
+    	  // add_action('add_meta_boxes', array(&$this, 'add_meta_boxes'));
     	} // END public function admin_init()
 			
     	/**
