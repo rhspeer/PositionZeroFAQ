@@ -15,7 +15,7 @@
  */
 
 get_header(); ?>
-<!-- Refactor CSS inclusion to use theme_enqueue_styles()
+<!-- Refactor CSS inclusion to use theme_enqueue_styles() -->
 <!-- Bootstrap code -->
 <!-- Latest 3/2016 compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
