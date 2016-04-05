@@ -26,7 +26,7 @@ Early version that could be used in production by experienced Wordpress develope
 2. Improve customer experience by answering common questions
 3. Provide opportunity for site to demonstrate organizations expert level knowlege with an call to action to start a sales funnel
 4. Provide keyword rich, useful, and topical content useful for Search Engine Optimization & users alike.
-5. Easy to fit into themes using common CSS, HTML, & Wordpress conventions while avoiding complex administration settings. 
+5. Easy to fit into themes using common CSS, HTML, & Wordpress conventions while avoiding complex administration settings.
 
 ##Installation:
 1. Download to the plugin directory

@@ -43,3 +43,12 @@
         min-width: 185px;
     }
 }
+
+/* overrides some default styles in themes based on twentysixteen to allow bootstrap pagination */
+nav.pzfaq-bootstrap-pagination .pagination:before, nav.pzfaq-bootstrap-pagination .pagination:after{
+    display: none;
+}
+
+nav.pzfaq-bootstrap-pagination .pagination {
+    border-top: none;
+}

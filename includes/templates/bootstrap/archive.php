@@ -15,11 +15,6 @@
  */
 
 get_header(); ?>
-<!-- Refactor CSS inclusion to use theme_enqueue_styles() -->
-<!-- Bootstrap code -->
-<!-- Latest 3/2016 compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" href="<?php echo plugins_url(); ?>/PositionZeroFAQ/includes/templates/bootstrap/css/style.css">
 
     <div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -95,11 +90,8 @@ get_header(); ?>
 
                             <?php
                             // Previous/next page navigation.
-                            the_posts_pagination( array(
-                                'prev_text'          => __( 'Previous page', '' ),
-                                'next_text'          => __( 'Next page', '' ),
-                                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '' ) . ' </span>',
-                            ) );
+
+                          PositionZeroFAQ::bootstrapPagination();
 
                         // If no content, include the "No posts found" template.
                         else :
@@ -113,7 +105,3 @@ get_header(); ?>
 	</div><!-- .content-area -->
 
 <?php get_footer(); ?>
-
-<!-- Bootstrap code, refactor to use wp_enqueue_scripts() in child theme -->
-<!-- Latest (3/2016) compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
