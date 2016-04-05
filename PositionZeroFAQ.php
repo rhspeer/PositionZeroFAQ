@@ -64,7 +64,9 @@ if(!class_exists('PositionZeroFAQ'))
 
             add_action('template_redirect', array($this, 'canonicalArchiveUrl'));
 
+
             add_action( 'wp_enqueue_scripts', array($this, 'enqueueBootstrap') );
+
 
 		} // END public function __construct
 
@@ -89,15 +91,20 @@ if(!class_exists('PositionZeroFAQ'))
 
         /**
          *  Enqueue Bootstrap Library & additional assets needed for the bootstrap variant
+         *
+         *  Limited to just the pzfaq archive page
+         *
+         *  todo: admin settings to let privileged users choose when & if to load bootstrap
          */
         public static function enqueueBootstrap(){
-            wp_register_script( 'bootstrap', plugins_url( 'includes/templates/bootstrap/bootstrap-3.3.6/js/bootstrap.min.js', __FILE__ ), array(), '3.3.6', true );
-            wp_enqueue_script( 'bootstrap' );
+            if(get_post_type() == 'pzfaq' && is_archive()){
+                wp_register_script( 'bootstrap', plugins_url( 'includes/templates/bootstrap/bootstrap-3.3.6/js/bootstrap.min.js', __FILE__ ), array(), '3.3.6', true );
+                wp_enqueue_script( 'bootstrap' );
 
-            wp_register_style( 'bootstrap', plugins_url( 'includes/templates/bootstrap/bootstrap-3.3.6/css/bootstrap.min.css', __FILE__ ), array(), '3.3.6', 'all' );
-            wp_register_style( 'pzfaq-bootstrap', plugins_url( 'includes/templates/bootstrap/css/style.css', __FILE__ ), array('bootstrap'), '0.1', 'all' );
-            wp_enqueue_style( 'pzfaq-bootstrap');
-
+                wp_register_style( 'bootstrap', plugins_url( 'includes/templates/bootstrap/bootstrap-3.3.6/css/bootstrap.min.css', __FILE__ ), array(), '3.3.6', 'all' );
+                wp_register_style( 'pzfaq-bootstrap', plugins_url( 'includes/templates/bootstrap/css/style.css', __FILE__ ), array('bootstrap'), '0.1', 'all' );
+                wp_enqueue_style( 'pzfaq-bootstrap');
+            }
         }
 
 
