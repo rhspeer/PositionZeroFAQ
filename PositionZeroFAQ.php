@@ -92,12 +92,12 @@ if(!class_exists('PositionZeroFAQ'))
         /**
          *  Enqueue Bootstrap Library & additional assets needed for the bootstrap variant
          *
-         *  Limited to just the pzfaq archive page
+         *  Limited to just pzfaq
          *
          *  todo: admin settings to let privileged users choose when & if to load bootstrap
          */
         public static function enqueueBootstrap(){
-            if(get_post_type() == 'pzfaq' && is_archive()){
+            if(get_post_type() == 'pzfaq'){
                 wp_register_script( 'bootstrap', plugins_url( 'includes/templates/bootstrap/bootstrap-3.3.6/js/bootstrap.min.js', __FILE__ ), array(), '3.3.6', true );
                 wp_enqueue_script( 'bootstrap' );
 
