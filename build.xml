@@ -2,7 +2,7 @@
 <project name="PositionZeroFAQ" default="build">
  <property name="toolsdir" value="bin/" />
  <target name="build"
-         depends="prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox"
+         depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox"
          description=""/>
 
  <target name="build-parallel"
@@ -43,6 +43,16 @@
   <mkdir dir="${basedir}/build/phpdox"/>
   <property name="prepare.done" value="true"/>
  </target>
+
+
+    <target name="composer" description="Installing composer dependencies">
+        <exec executable="composer" failonerror="true">
+            <arg value="install" />
+            <arg value="--dev" />
+            <arg value="--prefer-dist" />
+            <arg value="--no-progress" />
+        </exec>
+    </target>
 
  <target name="lint" description="Perform syntax check of sourcecode files">
   <apply executable="php" failonerror="true">
@@ -145,7 +155,6 @@
   <exec executable="${toolsdir}phpcpd">
    <arg value="--log-pmd" />
    <arg path="${basedir}/build/logs/pmd-cpd.xml" />
-   <arg path="${basedir}" />
   </exec>
  </target>
 
