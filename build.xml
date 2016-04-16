@@ -48,27 +48,30 @@
     <target name="composer" description="Installing composer dependencies">
         <exec executable="composer" failonerror="true">
             <arg value="install" />
-            <arg value="--dev" />
             <arg value="--prefer-dist" />
             <arg value="--no-progress" />
         </exec>
     </target>
 
- <target name="lint"
-         unless="lint.done"
-         description="Perform syntax check of sourcecode files">
-  <apply executable="php" failonerror="true">
-   <arg value="-l" />
+    <target name="lint"
+            unless="lint.done"
+            description="Perform syntax check of sourcecode files">
+        <apply executable="php" taskname="lint">
+            <arg value="-l" />
 
-   <fileset dir="${basedir}">
-    <include name="**/*.php" />
-    <exclude name="vendor/*" />
-    <modified />
-   </fileset>
+            <fileset dir="${basedir}">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
 
-  </apply>
-     <property name="lint.done" value="true"/>
- </target>
+            <fileset dir="${basedir}/tests">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+        </apply>
+
+        <property name="lint.done" value="true"/>
+    </target>
 
  <target name="phploc"
          description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
