@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="PositionZeroFAQ" default="build">
- <property name="toolsdir" value="vendor/" />
+ <property name="toolsdir" value="vendor/bin/" />
  <target name="build"
          depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox"
          description=""/>
@@ -71,7 +71,7 @@
 
  <target name="phploc"
          description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
-  <exec executable="${toolsdir}phploc/phploc/phploc">
+  <exec executable="${toolsdir}phploc">
    <arg value="--count-tests" />
    <arg path="${basedir}" />
   </exec>
@@ -80,7 +80,7 @@
  <target name="phploc-ci"
          depends="prepare"
          description="Measure project size using PHPLOC and log result in CSV and XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${toolsdir}phploc/phploc/phploc">
+  <exec executable="${toolsdir}phploc">
    <arg value="--count-tests" />
    <arg value="--log-csv" />
    <arg path="${basedir}/build/logs/phploc.csv" />
@@ -93,11 +93,12 @@
  <target name="pdepend"
          depends="prepare"
          description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${toolsdir}pdepend/pdepend/src/bin/pdepend">
+  <exec executable="${toolsdir}pdepend">
    <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
    <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
    <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
    <arg path="${basedir}" />
+   <arg value="--ignore=vendor" />
   </exec>
  </target>
 
