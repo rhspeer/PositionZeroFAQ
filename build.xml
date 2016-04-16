@@ -54,16 +54,20 @@
         </exec>
     </target>
 
- <target name="lint" description="Perform syntax check of sourcecode files">
+ <target name="lint"
+         unless="lint.done"
+         description="Perform syntax check of sourcecode files">
   <apply executable="php" failonerror="true">
    <arg value="-l" />
 
    <fileset dir="${basedir}">
     <include name="**/*.php" />
+    <exclude name="vendor/*" />
     <modified />
    </fileset>
 
   </apply>
+     <property name="lint.done" value="true"/>
  </target>
 
  <target name="phploc"
