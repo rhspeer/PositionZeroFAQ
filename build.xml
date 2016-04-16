@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="PositionZeroFAQ" default="build">
- <property name="toolsdir" value="bin/" />
+ <property name="toolsdir" value="vendor/" />
  <target name="build"
          depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox"
          description=""/>
