@@ -1,5 +1,8 @@
 {
-    "name": "rhspeer/PositionZeroFAQ",
+    "name": "rhspeer/position-zero-faq",
+    "description": "FAQ plugin for Wordpress",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.*",
         "phpmd/phpmd": "2.1.*",
