@@ -74,6 +74,7 @@
          description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
   <exec executable="${toolsdir}phploc">
    <arg value="--count-tests" />
+   <arg value="--exclude=vendor" />
    <arg path="${basedir}" />
   </exec>
  </target>
