@@ -99,7 +99,7 @@
    <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
    <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
    <arg path="${basedir}" />
-   <arg value="--ignore=${basedir}/vendor" />
+
   </exec>
  </target>
 
