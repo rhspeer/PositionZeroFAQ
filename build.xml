@@ -108,7 +108,7 @@
   <exec executable="${toolsdir}phpmd">
    <arg path="${basedir}" />
    <arg value="text" />
-   <arg path="${basedir}/build/phpmd.xml" />
+   <arg path="${basedir}/vendor/phpunit/phpunit/build/phpmd.xml" />
   </exec>
  </target>
 
