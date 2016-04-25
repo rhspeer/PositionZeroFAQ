@@ -111,7 +111,8 @@
    <arg path="${basedir}" />
    <arg value="text" />
    <arg path="${basedir}/build/phpmd.xml" />
-   <arg value="--ignore=vendor" />
+   <arg value="--exclude"/>
+   <arg value="**/vendor/**"/>
   </exec>
  </target>
 
@@ -124,7 +125,8 @@
    <arg path="${basedir}/build/phpmd.xml" />
    <arg value="--reportfile" />
    <arg path="${basedir}/build/logs/pmd.xml" />
-   <arg value="--ignore=vendor" />
+   <arg value="--exclude"/>
+   <arg value="**/vendor/**"/>
   </exec>
  </target>
 
