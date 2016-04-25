@@ -166,6 +166,8 @@
   <exec executable="${toolsdir}phpcpd">
    <arg value="--log-pmd" />
    <arg path="${basedir}/build/logs/pmd-cpd.xml" />
+   <arg value="--exclude=vendor"/>
+   <arg path="${basedir}" />
   </exec>
  </target>
 
