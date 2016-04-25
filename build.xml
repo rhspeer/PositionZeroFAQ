@@ -2,7 +2,7 @@
 <project name="PositionZeroFAQ" default="build">
  <property name="toolsdir" value="vendor/bin/" />
  <target name="build"
-         depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcpd-ci,phpunit"
+         depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci, phpcpd-ci,phpunit"
          description=""/>
 
  <target name="build-parallel"
@@ -135,7 +135,7 @@
   <exec executable="${toolsdir}phpcs">
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php" />
+   <arg value="--ignore=autoload.php, */vendor/*" />
    <arg path="${basedir}" />
   </exec>
  </target>
@@ -148,7 +148,7 @@
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php" />
+   <arg value="--ignore=autoload.php, */vendor/*" />
    <arg path="${basedir}" />
   </exec>
  </target>
