@@ -135,7 +135,7 @@
   <exec executable="${toolsdir}phpcs">
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php, */vendor/*" />
+   <arg value="--ignore=*/vendor/*" />
    <arg path="${basedir}" />
   </exec>
  </target>
@@ -148,7 +148,7 @@
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php, */vendor/*" />
+   <arg value="--ignore=*/vendor/*" />
    <arg path="${basedir}" />
   </exec>
  </target>
