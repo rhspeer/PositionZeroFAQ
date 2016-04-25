@@ -4,7 +4,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "squizlabs/php_codesniffer": "1.5.*",
+        "squizlabs/php_codesniffer": "2.6.*",
         "phpmd/phpmd": "2.1.*",
         "sebastian/phpcpd": "2.0.*",
         "pdepend/pdepend": "2.0.*",
