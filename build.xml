@@ -2,7 +2,7 @@
 <project name="PositionZeroFAQ" default="build">
  <property name="toolsdir" value="vendor/bin/" />
  <target name="build"
-         depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci, phpcpd-ci,phpunit"
+         depends="prepare,composer,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci, phpcpd-ci,phpdox"
          description=""/>
 
  <target name="build-parallel"
