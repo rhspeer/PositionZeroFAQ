@@ -5,11 +5,11 @@
     "prefer-stable": true,
     "require-dev": {
         "squizlabs/php_codesniffer": "2.6.*",
-        "phpmd/phpmd": "2.1.*",
+        "phpmd/phpmd": "2.4.*",
         "sebastian/phpcpd": "2.0.*",
-        "pdepend/pdepend": "2.0.*",
-        "phploc/phploc": "2.0.*",
-        "phpunit/phpunit": "4.3.*",
-        "theseer/phpdox": "0.7.*"
+        "pdepend/pdepend": "@stable",
+        "phploc/phploc": "*",
+        "phpunit/phpunit": "5.3.*",
+        "theseer/phpdox": "0.8.*"
     }
 }
