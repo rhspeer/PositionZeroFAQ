@@ -98,11 +98,28 @@ if (!class_exists('PositionZeroFAQ')) {
         public static function enqueueBootstrap()
         {
             if (get_post_type() == 'pzfaq') {
-                wp_register_script('bootstrap', plugins_url('includes/templates/bootstrap/bootstrap-3.3.6/js/bootstrap.min.js', __FILE__), array(), '3.3.6', true);
+                wp_register_script(
+                    'bootstrap',
+                    plugins_url('includes/templates/bootstrap/bootstrap-3.3.6/js/bootstrap.min.js',__FILE__), array(),
+                    '3.3.6',
+                    true
+                );
                 wp_enqueue_script('bootstrap');
 
-                wp_register_style('bootstrap', plugins_url('includes/templates/bootstrap/bootstrap-3.3.6/css/bootstrap.min.css', __FILE__), array(), '3.3.6', 'all');
-                wp_register_style('pzfaq-bootstrap', plugins_url('includes/templates/bootstrap/css/style.css', __FILE__), array('bootstrap'), '0.1', 'all');
+                wp_register_style(
+                    'bootstrap',
+                    plugins_url('includes/templates/bootstrap/bootstrap-3.3.6/css/bootstrap.min.css', __FILE__),
+                    array(),
+                    '3.3.6',
+                    'all'
+                );
+                wp_register_style(
+                    'pzfaq-bootstrap',
+                    plugins_url('includes/templates/bootstrap/css/style.css', __FILE__),
+                    array('bootstrap'),
+                    '0.1',
+                    'all'
+                );
                 wp_enqueue_style('pzfaq-bootstrap');
             }
         }
@@ -175,7 +192,13 @@ if (!class_exists('PositionZeroFAQ')) {
 
             // URL base depends on permalink settings.
             $format = $wp_rewrite->using_index_permalinks() && !strpos($pagenum_link, 'index.php') ? 'index.php/' : '';
-            $format .= $wp_rewrite->using_permalinks() ? user_trailingslashit($wp_rewrite->pagination_base . '/%#%', 'paged') : '?paged=%#%';
+
+            if($wp_rewrite->using_permalinks()){
+                $format .= user_trailingslashit($wp_rewrite->pagination_base . '/%#%', 'paged');
+            }
+            if(!$wp_rewrite->using_permalinks()){
+                $format .= '?paged=%#%';
+            }
 
             $defaults = array(
                 'base' => $pagenum_link, // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
@@ -258,13 +281,22 @@ if (!class_exists('PositionZeroFAQ')) {
                  *
                  * @param string $link The paginated link URL.
                  */
-                $page_links[] = '<a class="' . $args['class_prev_a'] . '" href="' . esc_url(apply_filters('paginate_links', $link)) . '">' . $args['prev_text'] . '</a>';
+                $page_links[] = '<a class="'.$args['class_prev_a'].'
+                                  " href="'.esc_url(apply_filters('paginate_links', $link)).'">'.
+                                   ['prev_text'].
+                                '</a>';
             endif;
             for ($n = 1; $n <= $total; $n++):
                 if ($n == $current):
-                    $page_links[] = "<a class='" . $args['class_current_a'] . "'>" . $args['before_page_number'] . number_format_i18n($n) . $args['after_page_number'] . "</a>";
+                    $page_links[] = "<a class='" . $args['class_current_a'] . "'>" . $args['before_page_number'].
+                        number_format_i18n($n) . $args['after_page_number'] . "</a>";
+
                     $dots = true; else :
-                    if ($args['show_all'] || ($n <= $end_size || ($current && $n >= $current - $mid_size && $n <= $current + $mid_size) || $n > $total - $end_size)):
+                    if ($args['show_all'] ||
+                        ($n <= $end_size ||
+                            ($current && $n >= $current - $mid_size && $n <= $current + $mid_size) ||
+                            $n > $total - $end_size)
+                    ):
                         $link = str_replace('%_%', 1 == $n ? '' : $args['format'], $args['base']);
                         $link = str_replace('%#%', $n, $link);
                         if ($add_args)
@@ -272,7 +304,9 @@ if (!class_exists('PositionZeroFAQ')) {
                         $link .= $args['add_fragment'];
 
                         /** This filter is documented in wp-includes/general-template.php */
-                        $page_links[] = "<a class='" . $args['class_a'] . "' href='" . esc_url(apply_filters('paginate_links', $link)) . "'>" . $args['before_page_number'] . number_format_i18n($n) . $args['after_page_number'] . "</a>";
+                        $page_links[] = "<a class='" . $args['class_a'] .
+                            "' href='" . esc_url(apply_filters('paginate_links', $link)) . "'>" .
+                            $args['before_page_number'] . number_format_i18n($n) . $args['after_page_number'] . "</a>";
                         $dots = true; elseif ($dots && !$args['show_all']):
                         $page_links[] = '<span class="' . $args['class_a_dots'] . '>' . __('&hellip;') . '</span>';
                         $dots = false;
@@ -287,7 +321,8 @@ if (!class_exists('PositionZeroFAQ')) {
                 $link .= $args['add_fragment'];
 
                 /** This filter is documented in wp-includes/general-template.php */
-                $page_links[] = '<a class="' . $args['class_a_next'] . '" href="' . esc_url(apply_filters('paginate_links', $link)) . '">' . $args['next_text'] . '</a>';
+                $page_links[] = '<a class="' . $args['class_a_next'] .
+                    '" href="' . esc_url(apply_filters('paginate_links', $link)) . '">' . $args['next_text'] . '</a>';
             endif;
             switch ($args['type']) {
                 case 'array' :

@@ -146,7 +146,7 @@ if(!class_exists('FAQPostType'))
             {
                 return;
             }
-                        
+
             if(isset($_POST['post_type']) && $_POST['post_type'] == self::POST_TYPE && current_user_can('edit_post', $post_id))
             {error_log('string test', 3, '/tmp/php_error.log');
                 foreach($this->_meta as $field_name)
@@ -171,7 +171,7 @@ if(!class_exists('FAQPostType'))
             // Add metaboxes
           // add_action('add_meta_boxes', array(&$this, 'add_meta_boxes'));
         } // END public function admin_init()
-            			
+
         /**
          * hook into WP's add_meta_boxes action hook
          */
