@@ -291,12 +291,12 @@ if (!class_exists('PositionZeroFAQ')) {
                     $page_links[] = "<a class='" . $args['class_current_a'] . "'>" . $args['before_page_number'].
                         number_format_i18n($n) . $args['after_page_number'] . "</a>";
 
-                    $dots = true; else :
+                    $dots = true;
+                else:
                     if ($args['show_all'] ||
                         ($n <= $end_size ||
-                            ($current && $n >= $current - $mid_size && $n <= $current + $mid_size) ||
-                            $n > $total - $end_size)
-                    ):
+                            ($current && $n >= $current - $mid_size && $n <= $current + $mid_size ) ||
+                            $n > $total - $end_size ) ):
                         $link = str_replace('%_%', 1 == $n ? '' : $args['format'], $args['base']);
                         $link = str_replace('%#%', $n, $link);
                         if ($add_args)
