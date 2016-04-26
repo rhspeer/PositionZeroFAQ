@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpdox xmlns="http://xml.phpdox.net/config">
-    <project name="PositionZeroFAQ" source="${basedir}" workdir="${basedir}/api/xml">
+    <project name="PositionZeroFAQ" source="." workdir="build/phpdox">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
 
-        <generator output="${basedir}/api">
+        <generator output="build">
             <enrich base="${basedir}/logs">
                 <source type="build" />
                 <source type="git">
