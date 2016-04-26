@@ -40,23 +40,23 @@ if (! defined('PZ_FAQ_PLUGIN_URL'))
 
 if(!class_exists('PositionZeroFAQ'))
 {
-	class PositionZeroFAQ
-	{
-		/**
-		 * Construct the plugin object
-		 */
-		public function __construct()
-		{
-			// Initialize Settings
-			require_once(sprintf("%s/settings.php", dirname(__FILE__)));
-			$PositionZeroFAQSettings = new PositionZeroFAQSettings();
+    class PositionZeroFAQ
+    {
+        /**
+         * Construct the plugin object
+         */
+        public function __construct()
+        {
+            // Initialize Settings
+            require_once(sprintf("%s/settings.php", dirname(__FILE__)));
+            $PositionZeroFAQSettings = new PositionZeroFAQSettings();
 
-			// Register custom post types
-			require_once(sprintf("%s/post-types/FAQPostType.php", dirname(__FILE__)));
-			$FAQPostType = new FAQPostType();
+            // Register custom post types
+            require_once(sprintf("%s/post-types/FAQPostType.php", dirname(__FILE__)));
+            $FAQPostType = new FAQPostType();
 
-			$plugin = plugin_basename(__FILE__);
-			add_filter("plugin_action_links_$plugin", array($this, 'pluginSettingsLink'));
+            $plugin = plugin_basename(__FILE__);
+            add_filter("plugin_action_links_$plugin", array($this, 'pluginSettingsLink'));
 
             add_filter('template_include', array($this,'pzfaqTemplateChooser'));
 
@@ -68,26 +68,26 @@ if(!class_exists('PositionZeroFAQ'))
             add_action('wp_enqueue_scripts', array($this, 'enqueueBootstrap'));
 
 
-		} // END public function __construct
+        } // END public function __construct
 
-		/**
-		 * Activate the plugin
-		 */
-		public static function activate()
-		{
-			// Do nothing
-		} // END public static function activate
+        /**
+         * Activate the plugin
+         */
+        public static function activate()
+        {
+            // Do nothing
+        } // END public static function activate
 
-		/**
-		 * Deactivate the plugin
+        /**
+         * Deactivate the plugin
          *
          * todo: delete data on plugin deactivate
          *
-		 */
-		public static function deactivate()
-		{
-			// Do nothing
-		} // END public static function deactivate
+         */
+        public static function deactivate()
+        {
+            // Do nothing
+        } // END public static function deactivate
 
         /**
          *  Enqueue Bootstrap Library & additional assets needed for the bootstrap variant
@@ -347,13 +347,13 @@ if(!class_exists('PositionZeroFAQ'))
 
 
 
-		// Add the settings link to the plugins page
-		function pluginSettingsLink($links)
-		{
-			$settings_link = '<a href="options-general.php?page=PositionZeroFAQ">Settings</a>';
-			array_unshift($links, $settings_link);
-			return $links;
-		}
+        // Add the settings link to the plugins page
+        function pluginSettingsLink($links)
+        {
+            $settings_link = '<a href="options-general.php?page=PositionZeroFAQ">Settings</a>';
+            array_unshift($links, $settings_link);
+            return $links;
+        }
 
         /**
          * Returns template file from plugin or plugin extension
@@ -410,16 +410,16 @@ if(!class_exists('PositionZeroFAQ'))
         }
 
 
-	} // END class PositionZeroFAQ
+    } // END class PositionZeroFAQ
 } // END if(!class_exists('PositionZeroFAQ'))
 
 if(class_exists('PositionZeroFAQ'))
 {
-	// Installation and uninstallation hooks
-	register_activation_hook(__FILE__, array('PositionZeroFAQ', 'activate'));
-	register_deactivation_hook(__FILE__, array('PositionZeroFAQ', 'deactivate'));
+    // Installation and uninstallation hooks
+    register_activation_hook(__FILE__, array('PositionZeroFAQ', 'activate'));
+    register_deactivation_hook(__FILE__, array('PositionZeroFAQ', 'deactivate'));
 
-	// instantiate the plugin class
-	$PositionZeroFAQ = new PositionZeroFAQ();
+    // instantiate the plugin class
+    $PositionZeroFAQ = new PositionZeroFAQ();
 
 }
