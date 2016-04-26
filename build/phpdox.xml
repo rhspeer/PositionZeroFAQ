@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpdox xmlns="http://xml.phpdox.net/config">
-    <project name="PositionZeroFAQ" source="${basedir}" workdir="${basedir}/build/api/xml">
+    <project name="PositionZeroFAQ" source="${basedir}" workdir="${basedir}/api/xml">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
