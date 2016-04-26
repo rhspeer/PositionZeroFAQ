@@ -5,8 +5,8 @@
             <include mask="*.php" />
         </collector>
 
-        <generator output="${basedir}/build/api">
-            <enrich base="${basedir}/build/logs">
+        <generator output="${basedir}/api">
+            <enrich base="${basedir}/logs">
                 <source type="build" />
                 <source type="git">
                     <history enabled="true" limit="15" />
